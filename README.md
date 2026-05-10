@@ -3,10 +3,10 @@
 <p align="center">  
   <img src="./documents/images/devmaster.jpg"  
        alt="Devmaster"  
-       style="max-width: 260px; 
+       style="max-width: 160px; 
        width: 60%; 
        height: auto;
-       border-radius:10052024px"
+       border-radius:50%"
        >  
 </p>  
 
@@ -14,7 +14,7 @@
   <a href="#-descrição-do-projeto">Sobre o Projeto</a> |  
   <a href="#-entregas-de-sprints">Entrega de Sprints</a> |  
   <a href="#-documentação">Documentação</a> |  
-  <a href="#-protótipo-no-figma">Protótipo</a> |  
+  <!-- <a href="#-protótipo-no-figma">Protótipo</a> |   -->
   <a href="#equipe">Nossa Equipe</a>  
 </p>  
 
