@@ -80,9 +80,9 @@ As entregas seguem o cronograma definido com o cliente. Cada sprint gera um rela
 
 | Sprint | Entrega       | Status | Relatório |  
 |------: |---------------|:------:|:------------------------------------------:|  
-| 1      | 📅 04/05/2026 | ✅      | [Ver Backlog](./documentacao/sprints/sprint_1.md) |  
-| 2      | 📅 25/05/2026 | 🚧    | [Ver Backlog](./documentacao/sprints/sprint_2.md) |  
-| 3      | 📅 --/--/---- | `—`    | [Ver Backlog](./documentacao/sprints/sprint_3.md) |  
+| 1      | 📅 04/05/2026 | ✅      | [Ver Backlog](./documents/Sprint1.md) |  
+| 2      | 📅 25/05/2026 | 🚧    | [Ver Backlog](./documents/Sprint2.md) |  
+| 3      | 📅 --/--/---- | `—`    | [Ver Backlog](./documents/Sprint3.md) |  
 
 </div>  
 
@@ -103,13 +103,13 @@ As entregas seguem o cronograma definido com o cliente. Cada sprint gera um rela
 - **Modelagem do Banco de Dados:** [Acesse aqui](./documents/modelagem_bd.md)  
   Estrutura de entidades e relacionamentos para suportar navegação, perguntas e respostas.  
   
-- **Definition of Ready (DoR):** [Acesse aqui](./documentacao/Definition-of-Ready-NexaTech.md)  
+- **Definition of Ready (DoR):** [Acesse aqui](./documents/Definition%20of%20Ready.md)  
   Critérios que definem quando uma *user story* está pronta para entrar em sprint.  
   
-- **Definition of Done (DoD):** [Acesse aqui](./documentacao/Definition-of-Done-NexaTech.md)  
+- **Definition of Done (DoD):** [Acesse aqui](./documents/Definition%20of%20Done%20.md)  
   Critérios que garantem qualidade e conclusão das tarefas.  
   
-- **Diagramas UML:** [Acesse aqui](./documentacao/UML/)  
+- **Diagramas UML:** [Acesse aqui](./documents/uml.md)  
   Casos de uso, classes, sequência e componentes, representando o fluxo do chatbot e gestão de conteúdo.  
   
 ---
