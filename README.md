@@ -42,10 +42,81 @@ Repositório responsável pela interface web da aplicação, telas, componentes 
 ## Estrutura geral  
 
 ```txt
-MainABP2026
-├── Backend  -> API e regras de negócio
-└── Frontend -> Interface web da aplicação
+infra-autoatendimento/       <- este repositório
+├── backend/                 <- submodule: backend_abp_autoatendimento (main)
+├── frontend/                <- submodule: frontend_abp_autoatentimento (main)
+├── infra/
+│   └── frontend.Dockerfile
+├── docker-compose.yml
+└── README.md
 ```
+
+## Como clonar
+
+Clone o repositório **com os submodules** para que `backend/` e `frontend/` sejam baixados automaticamente:
+
+```bash
+git clone --recurse-submodules https://github.com/devmaster-organizations/infra-autoatendimento.git
+```
+
+Se você já clonou sem submodules, inicialize-os com:
+
+```bash
+git submodule update --init --recursive
+```
+
+## Como subir o ambiente local
+
+```bash
+docker compose up --build
+```
+
+Serviços disponíveis após o up:
+
+| Serviço   | URL                    |
+|-----------|------------------------|
+| Frontend  | http://localhost:3000  |
+| API       | http://localhost:3001  |
+| PgAdmin   | http://localhost:5050  |
+| Postgres  | localhost:5433         |
+
+## Como atualizar frontend ou backend após um merge na main
+
+Os submodules são **fixados em um commit específico**, não em uma branch "ao vivo".  
+Isso significa que um merge na `main` do frontend **não atualiza automaticamente** este repositório.
+
+Para puxar a versão mais recente de um submodule:
+
+```bash
+# Atualizar o frontend para o commit mais recente da main
+cd frontend
+git pull origin main
+cd ..
+git add frontend
+git commit -m "chore: bump frontend to latest main"
+git push
+
+# O mesmo vale para o backend
+cd backend
+git pull origin main
+cd ..
+git add backend
+git commit -m "chore: bump backend to latest main"
+git push
+```
+
+Para atualizar **todos os submodules de uma vez**:
+
+```bash
+git submodule update --remote --merge
+git add .
+git commit -m "chore: bump submodules to latest main"
+git push
+```
+
+> Depois que alguém fizer esse update e o repo principal for atualizado,
+> um simples `git pull` aqui já trará a nova referência do submodule.
+
 --- 
 
 ## 📌 Descrição do projeto  
