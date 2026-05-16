@@ -51,7 +51,9 @@ infra-autoatendimento/       <- este repositório
 └── README.md
 ```
 
-## Como clonar
+## Como clonar e configurar
+
+### 1. Clone com submodules
 
 Clone o repositório **com os submodules** para que `backend/` e `frontend/` sejam baixados automaticamente:
 
@@ -59,11 +61,62 @@ Clone o repositório **com os submodules** para que `backend/` e `frontend/` sej
 git clone --recurse-submodules https://github.com/devmaster-organizations/infra-autoatendimento.git
 ```
 
-Se você já clonou sem submodules, inicialize-os com:
+> Se você já clonou sem submodules e as pastas `backend/` e `frontend/` estão vazias, rode:
+>
+> ```bash
+> git submodule update --init --recursive
+> ```
+
+### 2. Como fazer pull e trazer as novidades dos submodules
+
+Um `git pull` normal **neste repositório** atualiza apenas os arquivos de infra (compose, README, etc.).  
+Os submodules (`backend/` e `frontend/`) **não atualizam sozinhos** com o pull.
+
+**Por quê?** Este repo guarda um ponteiro para um commit específico de cada submodule. O ponteiro só muda quando alguém atualiza explicitamente e faz push aqui.
+
+**Fluxo completo para puxar tudo de uma vez:**
 
 ```bash
+# 1. Atualiza este repositório
+git pull
+
+# 2. Atualiza os submodules para o commit registrado neste repo
 git submodule update --init --recursive
 ```
+
+### 3. Como atualizar um submodule para o commit mais recente da main
+
+Quando houver um merge na `main` do frontend ou backend, é necessário:
+
+```bash
+# Opção A: atualizar um de cada vez
+cd frontend
+git pull origin main
+cd ..
+git add frontend
+git commit -m "chore: bump frontend to latest main"
+git push
+
+# O mesmo para o backend
+cd backend
+git pull origin main
+cd ..
+git add backend
+git commit -m "chore: bump backend to latest main"
+git push
+```
+
+```bash
+# Opção B: atualizar todos de uma vez
+git submodule update --remote --merge
+git add .
+git commit -m "chore: bump submodules to latest main"
+git push
+```
+
+> Depois que o ponteiro for atualizado e empurrado aqui,
+> qualquer pessoa que rodar `git pull && git submodule update --init --recursive`
+> vai receber a versão mais recente.
 
 ## Como subir o ambiente local
 
@@ -79,43 +132,6 @@ Serviços disponíveis após o up:
 | API       | http://localhost:3001  |
 | PgAdmin   | http://localhost:5050  |
 | Postgres  | localhost:5433         |
-
-## Como atualizar frontend ou backend após um merge na main
-
-Os submodules são **fixados em um commit específico**, não em uma branch "ao vivo".  
-Isso significa que um merge na `main` do frontend **não atualiza automaticamente** este repositório.
-
-Para puxar a versão mais recente de um submodule:
-
-```bash
-# Atualizar o frontend para o commit mais recente da main
-cd frontend
-git pull origin main
-cd ..
-git add frontend
-git commit -m "chore: bump frontend to latest main"
-git push
-
-# O mesmo vale para o backend
-cd backend
-git pull origin main
-cd ..
-git add backend
-git commit -m "chore: bump backend to latest main"
-git push
-```
-
-Para atualizar **todos os submodules de uma vez**:
-
-```bash
-git submodule update --remote --merge
-git add .
-git commit -m "chore: bump submodules to latest main"
-git push
-```
-
-> Depois que alguém fizer esse update e o repo principal for atualizado,
-> um simples `git pull` aqui já trará a nova referência do submodule.
 
 --- 
 
