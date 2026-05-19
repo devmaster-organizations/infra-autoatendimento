@@ -85,7 +85,7 @@ Além disso, construir a interface funcional do chatbot (frontend) integrada à 
 | **Ricardo Ladeira (PO)**             | G-02   | G-02   | G-02   | G-02   |         |                     | 
 | **Caio Julião**                      |        |        |        |        |         |                     |
 | **Jocelio Gomes Silva**              |   FE-01.3     |   FE-01.3     |        |        |         |                     | 
-| **Lucas dos Santos Ribeiro**         |        |        |        |        |         |                     | 
+| **Lucas dos Santos Ribeiro**         |    FE-01.1    |    FE-01.1    |    FE-02.1    |    FE-02.1    |         |                     | 
 | **Luis Gustavo**                     |        |        |        |        |         |                     |
 
 ---
