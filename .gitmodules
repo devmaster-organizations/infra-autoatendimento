@@ -1,0 +1,9 @@
+[submodule "backend"]
+	path = backend
+	url = https://github.com/devmaster-organizations/backend_abp_autoatendimento.git
+	branch = develop
+
+[submodule "frontend"]
+	path = frontend
+	url = https://github.com/devmaster-organizations/frontend_abp_autoatentimento.git
+	branch = develop
