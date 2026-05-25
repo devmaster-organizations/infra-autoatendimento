@@ -1,76 +1,50 @@
 services:
+  postgres:
+    image: postgres:17
+    container_name: infra-postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-password}
+      POSTGRES_DB: ${POSTGRES_DB:-autoatendimento}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-autoatendimento}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
 
   api:
     build:
       context: ./backend
       dockerfile: infra/Dockerfile
-      target: dev
-    working_dir: /usr/src/app
+      target: builder
+    container_name: infra-api
     environment:
       PORT: 3000
-      DATABASE_URL: postgresql://postgres:password@postgres:5432/autoatendimento?schema=public
-    ports:
-      - "3001:3000"
-    volumes:
-      - ./backend:/usr/src/app
-      - /usr/src/app/node_modules
+      DATABASE_URL: postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-password}@postgres:5432/${POSTGRES_DB:-autoatendimento}?schema=public
     depends_on:
       postgres:
         condition: service_healthy
-    command: sh -c "npm run prisma:generate && npx prisma migrate deploy && npm run start:dev"
-    networks:
-      - app-network
+    ports:
+      - "3001:3000"
+    command: >
+      sh -c "npm run prisma:generate &&
+      npx prisma migrate deploy &&
+      if [ -f prisma/seed.ts ]; then npx tsx prisma/seed.ts; elif [ -f prisma/seed.js ]; then node prisma/seed.js; else echo 'No seed file found, skipping seed.'; fi &&
+      npm run start"
 
   frontend:
     build:
-      context: ./frontend
-      dockerfile: ../infra/frontend.Dockerfile
-    ports:
-      - "3000:3000"
+      context: .
+      dockerfile: infra/frontend.Dockerfile
+    container_name: infra-frontend
     environment:
-      NEXT_PUBLIC_API_URL: http://localhost:3001
-    volumes:
-      - ./frontend:/app
-      - /app/node_modules
-      - /app/.next
+      NEXT_PUBLIC_API_BASE_URL: http://localhost:3001/api
     depends_on:
       - api
-    networks:
-      - app-network
-
-  postgres:
-    container_name: postgres
-    image: postgres:17
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: autoatendimento
     ports:
-      - "5433:5432"
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres -d autoatendimento"]
-      interval: 5s
-      timeout: 5s
-      retries: 10
-    networks:
-      - app-network
-
-  pgadmin:
-    image: dpage/pgadmin4
-    environment:
-      PGADMIN_DEFAULT_EMAIL: "infra@fatec.com"
-      PGADMIN_DEFAULT_PASSWORD: "password"
-    ports:
-      - "5050:80"
-    depends_on:
-      - postgres
-    networks:
-      - app-network
+      - "3000:3000"
 
 volumes:
   pgdata:
-
-networks:
-  app-network:

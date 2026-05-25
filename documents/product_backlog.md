@@ -2,9 +2,6 @@
 **Projeto ABP 2026-1 · 2º DSM · Focal Point: Prof. André Olímpio**
 
 ---
-
-## Sprint 1 — Base do Backend e Diagrama de Casos de Uso
-
 | Requisito | Tarefa | User Story |
 |-----------|--------|------------|
 | INF-01 – Configuração do repositório e ambiente | INF-01.1 – Configurar repositório, estrutura de pastas e TypeScript | Como dev, quero um repositório estruturado com TypeScript configurado para que todos os membros codifiquem de forma padronizada e sem conflitos. |
@@ -24,12 +21,6 @@
 | ARQ-01 – Modelagem UML (RNF04) | ARQ-01.1 – Criar e entregar Diagrama de Casos de Uso | Como avaliador, quero o diagrama de casos de uso entregue na Sprint 1 para que os requisitos funcionais e os atores do sistema estejam visualmente documentados. |
 | TESTE-02 – Testes unitários: Autenticação | TESTE-02.1 – Teste unitário de RF09: Autenticar-se no sistema | Como dev, quero um teste unitário do fluxo de login para que eu garanta que apenas credenciais válidas geram um token JWT. |
 | TESTE-02 – Testes unitários: Autenticação | TESTE-02.2 – Teste unitário de RF11: Validar token de acesso | Como dev, quero um teste unitário da validação do token para que eu garanta que requisições com token inválido ou expirado são rejeitadas. |
-
----
-
-## Sprint 2 — Rotas Push, Logs de Navegação e Diagrama de Classes
-
-| Requisito | Tarefa | User Story |
 |-----------|--------|------------|
 | RF04 – Gestão de conteúdo (Administrador) | RF04.1 – Criar endpoints GET de nós de navegação (listagem e busca por ID) | Como administrador, quero listar e consultar os nós de navegação pela API para que eu possa visualizar o conteúdo do chatbot. |
 | RF04 – Gestão de conteúdo (Administrador) | RF04.2 – Criar endpoints GET de usuários (listagem e busca por ID) | Como administrador, quero listar e consultar os usuários cadastrados para que eu tenha controle sobre quem tem acesso ao sistema. |
@@ -62,13 +53,6 @@
 | TESTE-03 – Testes unitários: Aluno | TESTE-03.3 – Teste unitário de RF08: Registrar log de navegação | Como dev, quero um teste unitário do registro de log para que eu garanta que o fluxo completo de navegação do aluno é persistido corretamente. |
 | TESTE-04 – Testes unitários: Secretária Acadêmica | TESTE-04.1 – Teste unitário de RF06: Listar perguntas recebidas | Como dev, quero um teste unitário da listagem de perguntas para que eu garanta que a Secretária visualiza apenas as solicitações que lhe competem. |
 | TESTE-04 – Testes unitários: Secretária Acadêmica | TESTE-04.2 – Teste unitário de RF06: Atualizar status de pergunta | Como dev, quero um teste unitário da atualização de status para que eu garanta que apenas os valores válidos (em aberto / respondida) são aceitos. |
-
----
-
-## Sprint 3 — Painel Administrativo, Documentação e Diagrama de Sequência
-
-| Requisito | Tarefa | User Story |
-|-----------|--------|------------|
 | RF07 – Avaliação de satisfação | RF07.2 – Implementar componente de avaliação de satisfação no chatbot | Como aluno, quero indicar se fui bem atendido ao final da interação para que o laboratório saiba se o autoatendimento está funcionando. |
 | Frontend – Painel Administrativo (RP01 / RNF01) | FE-03.1 – Criar tela de CRUD de nós de navegação no painel admin | Como administrador, quero gerenciar os menus do chatbot por uma interface visual para que alterações de conteúdo não exijam acesso direto ao banco de dados. |
 | Frontend – Painel Administrativo (RP01 / RNF01) | FE-03.2 – Criar tela de gerenciamento de usuários no painel admin | Como administrador, quero criar e remover usuários do perfil Secretária Acadêmica pela interface para que o controle de acessos seja simples e auditável. |
@@ -83,5 +67,4 @@
 | TESTE-05 – Testes unitários: Administrador | TESTE-05.2 – Teste unitário de RF04: Gerenciar nós de navegação | Como dev, quero um teste unitário do CRUD de nós para que eu garanta que a árvore de navegação é manipulada corretamente e sem inconsistências. |
 | TESTE-05 – Testes unitários: Administrador | TESTE-05.3 – Teste unitário de RF04: Gerenciar usuários da secretaria | Como dev, quero um teste unitário do CRUD de usuários para que eu garanta que apenas o Administrador cria, edita e remove usuários do perfil Secretária. |
 | TESTE-05 – Testes unitários: Administrador | TESTE-05.4 – Teste unitário de RF04: Visualizar logs de navegação | Como dev, quero um teste unitário da visualização de logs para que eu garanta que o Administrador acessa todos os registros de atendimento sem restrição indevida. |
-
-[![](https://img.plantuml.biz/plantuml/svg/dLV1Sjis4BtxAt2K7MKKsstQ-XHPf5nd95cHPFUGwMGW4gOm8G4P0EKwfvxw0Mq_e9aUEfEPd3AzzCe_oPVq0Q18of8zQIyIHIns5s_VleLUQ4ELoRY8CxhSCzoaZ7Hp8wbX8kOP4qQIAOiKWncdf1lHkFYGyOYIVdSMziXB6b75YezxUmTakbHS6798Fl_yEpcbcf5OuZjw2rVa2GauJHJDA8aPwL4jjNsur7Blu83qfBZcIQveyLVnfoJ88Pjp16UaTJxgFtrsk0-h0p9XIwcvAJufBk5nThTaqqZnfN6hWKGe1LyPhB1pBBL959k-6i2spgElfB2dioxnMaJI9XBG61crJeCgs536BAK9oyWmd7I2SEBUBfD8tIsDR1CcyaotYQ5pc95SCwMTnSo_47J54sgu56y4F3NNz0cvoPcsQt00p9YYaRDCPO8t6jlqTVbAuOT8_FQBoP2C5TS0iLLyH84Y1lDy6QDSyHjgt956TCMI4aZWka9UD88dcfBMfBy-tLau8nsZ60FOdHETvidUVO1jdQHOiAZaWTrzLE-Ea7sU6chtWJ8m0IryM6jvtC77TzvyV355D9gRHGSdv89y_kLNylA7cLiyTO2YC2jGh7Y_OjmnWvOCS6cTTdl8SwoaOLM4msU8SBWk5e_ZbDs2Ym0Ndk5EoTHjFWFITWjyZfbASc6e1aL_AtbTlBV4jXa_hy-sh0nRAKUBmDrvuD3jCmKICxSMi5N9pnAMwIrD4b3m2Nc9eDRySZWWhUxaLSMgnxfWXarCaql1NLRI5tqJsnFY4MmvTDi0BULn2RkHeBY31i7gXZno3JcHDkLnhXTjCW3DxdSaQAaTIol0kd5M1lggHaOKdrpAei6o9aRazV3YwdmOZcRTuEB7QbkkSt-aBp6sNN0_nhPbRt8PMAk6wqP5ouoPOYBYr1CujeeKvUw79lAQOuNhB-yPI-Cs6L_QZ-wiztsR1E4Wd8MxGF5yO2nsKPsuS54734L4WUwYpApuewcoDkJNpSwfr8AqukAV5GeE_DZJZF9q__zGt6NVSDivuN47LJ6vVdWT_E29SDrkILUYXP1JBrTrwt_Jp1saqdMCXh9PJuEoqatyhOTlcnui7PffsT-GBE_tFExKIlkOrVemhedB4U0mwYsecKi_GWRqJkR6PXJXBMdDPRgWa5YvH6v_Mx7L4NGbzUdrh09cm023SNo-Ym3XJtpEAw0OAbTyi7oiU4XJPzUNAijJHsDdA5R-OQr3MqblYeAVBNRgO8_JXt9SHZayK4Kq0zN8wz75LTay3Id55cMrOLEkZdR8LIqH3oXLcWi8r3hfaiVLF6iIf6tJR9Qwt0jCSbtsN9kevZZousU743H83dMqwgAQ0kvetoOWDrZxpeBXY5xt0tHycSexMqQwJAiXLg9Lw-Ynqz4nvOAbNXmHouxdbRsC1EkA-jsRwZfbDxcl_7_e7tUH4UuMjE8wjrfqXYiDuvsHjKpSy_uMDPe9RWZbGogr9PAFAUgLomGuLkdlKEk7SWB23OU-usozx2MhmNOxczRbgi9KydGVwTPa1CX8XzZlu_AY67Q3OKWKvU_WgtEzpWNFStyHhAzuib9ea4JTvDmmWvkelPYXlBblVE_LZL3VxIUDOJ-awcqiRyLc1nrlTz0c3RQQo7TsHQnOgetwg5tJQsC-LuOxf_GkmqQfw-MgnchdA2ujzru0nlK_Xty1)](https://editor.plantuml.com/uml/dLV1Sjis4BtxAt2K7MKKsstQ-XHPf5nd95cHPFUGwMGW4gOm8G4P0EKwfvxw0Mq_e9aUEfEPd3AzzCe_oPVq0Q18of8zQIyIHIns5s_VleLUQ4ELoRY8CxhSCzoaZ7Hp8wbX8kOP4qQIAOiKWncdf1lHkFYGyOYIVdSMziXB6b75YezxUmTakbHS6798Fl_yEpcbcf5OuZjw2rVa2GauJHJDA8aPwL4jjNsur7Blu83qfBZcIQveyLVnfoJ88Pjp16UaTJxgFtrsk0-h0p9XIwcvAJufBk5nThTaqqZnfN6hWKGe1LyPhB1pBBL959k-6i2spgElfB2dioxnMaJI9XBG61crJeCgs536BAK9oyWmd7I2SEBUBfD8tIsDR1CcyaotYQ5pc95SCwMTnSo_47J54sgu56y4F3NNz0cvoPcsQt00p9YYaRDCPO8t6jlqTVbAuOT8_FQBoP2C5TS0iLLyH84Y1lDy6QDSyHjgt956TCMI4aZWka9UD88dcfBMfBy-tLau8nsZ60FOdHETvidUVO1jdQHOiAZaWTrzLE-Ea7sU6chtWJ8m0IryM6jvtC77TzvyV355D9gRHGSdv89y_kLNylA7cLiyTO2YC2jGh7Y_OjmnWvOCS6cTTdl8SwoaOLM4msU8SBWk5e_ZbDs2Ym0Ndk5EoTHjFWFITWjyZfbASc6e1aL_AtbTlBV4jXa_hy-sh0nRAKUBmDrvuD3jCmKICxSMi5N9pnAMwIrD4b3m2Nc9eDRySZWWhUxaLSMgnxfWXarCaql1NLRI5tqJsnFY4MmvTDi0BULn2RkHeBY31i7gXZno3JcHDkLnhXTjCW3DxdSaQAaTIol0kd5M1lggHaOKdrpAei6o9aRazV3YwdmOZcRTuEB7QbkkSt-aBp6sNN0_nhPbRt8PMAk6wqP5ouoPOYBYr1CujeeKvUw79lAQOuNhB-yPI-Cs6L_QZ-wiztsR1E4Wd8MxGF5yO2nsKPsuS54734L4WUwYpApuewcoDkJNpSwfr8AqukAV5GeE_DZJZF9q__zGt6NVSDivuN47LJ6vVdWT_E29SDrkILUYXP1JBrTrwt_Jp1saqdMCXh9PJuEoqatyhOTlcnui7PffsT-GBE_tFExKIlkOrVemhedB4U0mwYsecKi_GWRqJkR6PXJXBMdDPRgWa5YvH6v_Mx7L4NGbzUdrh09cm023SNo-Ym3XJtpEAw0OAbTyi7oiU4XJPzUNAijJHsDdA5R-OQr3MqblYeAVBNRgO8_JXt9SHZayK4Kq0zN8wz75LTay3Id55cMrOLEkZdR8LIqH3oXLcWi8r3hfaiVLF6iIf6tJR9Qwt0jCSbtsN9kevZZousU743H83dMqwgAQ0kvetoOWDrZxpeBXY5xt0tHycSexMqQwJAiXLg9Lw-Ynqz4nvOAbNXmHouxdbRsC1EkA-jsRwZfbDxcl_7_e7tUH4UuMjE8wjrfqXYiDuvsHjKpSy_uMDPe9RWZbGogr9PAFAUgLomGuLkdlKEk7SWB23OU-usozx2MhmNOxczRbgi9KydGVwTPa1CX8XzZlu_AY67Q3OKWKvU_WgtEzpWNFStyHhAzuib9ea4JTvDmmWvkelPYXlBblVE_LZL3VxIUDOJ-awcqiRyLc1nrlTz0c3RQQo7TsHQnOgetwg5tJQsC-LuOxf_GkmqQfw-MgnchdA2ujzru0nlK_Xty1)
+    

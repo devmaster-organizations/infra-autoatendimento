@@ -1,12 +1,12 @@
 # ABP – Aprendizagem Baseada em Projetos  
 
 <p align="center">  
-  <img src="./documents/images/devmaster.jpg"  
+  <img src="./documents/images/devmaster.png"  
        alt="Devmaster"  
        style="max-width: 160px; 
        width: 60%; 
        height: auto;
-       border-radius:50%"
+       border-radius:1971px;"
        >  
 </p>  
 
@@ -14,8 +14,8 @@
   <a href="#-descrição-do-projeto">Sobre o Projeto</a> |  
   <a href="#-entregas-de-sprints">Entrega de Sprints</a> |  
   <a href="#-documentação">Documentação</a> |  
-  <!-- <a href="#-protótipo-no-figma">Protótipo</a> |   -->
-  <a href="#equipe">Nossa Equipe</a>  
+  <a href="#-tecnologias-utilizadas">Tecnologias utilizadas</a> |  
+  <a href="#-equipe">Nossa Equipe</a>  
 </p>  
 
 ---
@@ -39,7 +39,7 @@ Repositório responsável pela interface web da aplicação, telas, componentes 
 
 [frontend_abp_autoatentimento](https://github.com/devmaster-organizations/frontend_abp_autoatentimento)
 
-## Estrutura geral  
+## Estrutura de diretórios  
 
 ```txt
 infra-autoatendimento/       <- este repositório
@@ -134,6 +134,21 @@ Serviços disponíveis após o up:
 | Postgres  | localhost:5433         |
 
 --- 
+## 🌍 Variáveis de ambiente necessárias
+
+`PORT=3001`
+
+`DATABASE_URL=postgresql://<usuario>:<senha>@<host>:<porta>/<database>?schema=public`
+
+`POSTGRES_PORT=5433`
+
+`POSTGRES_USER=postgres`
+
+`POSTGRES_PASSWORD=<sua-chave-secreta-aqui>`
+
+`POSTGRES_DB=autoatendimento`
+
+---
 
 ## 📌 Descrição do projeto  
 
@@ -182,11 +197,9 @@ As entregas seguem o cronograma definido com o cliente. Cada sprint gera um rela
 
 ## 📑 Documentação  
 
-- **Backlog do Produto:** [Acesse aqui](./documents/product_backlog-v2.md)  
+- **Backlog do Produto:** [Acesse aqui](./documents/product_backlog.md)  
   Lista de requisitos funcionais e não funcionais, organizados em **User Stories**, conforme o desafio da Secretaria Acadêmica.   
   
-- **Backlog do Produto - mapa:** [Acesse aqui](./documents/product_backlop_map.md)  
-
 - **Modelagem do Banco de Dados:** [Acesse aqui](./documents/modelagem_bd.md)  
   Estrutura de entidades e relacionamentos para suportar navegação, perguntas e respostas.  
   
@@ -206,7 +219,7 @@ As entregas seguem o cronograma definido com o cliente. Cada sprint gera um rela
 - Kick-off: 27/03/2026  
 
 
-## 👨‍💻Equipe 
+## 👨‍💻 Equipe 
 
 | Nome | Função | GitHub |Portfólio|
 |------|--------|--------|--------|
@@ -217,4 +230,66 @@ As entregas seguem o cronograma definido com o cliente. Cada sprint gera um rela
 | Lucas dos Santos Ribeiro | Desenvolvedor | [Github](https://github.com/LucassantosR25) | [Portfólio](https://fatec-jacarei-dsm-portfolio.github.io/ra2581392523004/) |
 | Luis Gustavo | Desenvolvedor | [Github](https://github.com/LuisGustavo9) | [Portfólio](https://fatec-jacarei-dsm-portfolio.github.io/ra2581392523041) |
 
+##  🤖 Tecnologias utilizadas
+## 🧱 Backend
 
+| Categoria | Tecnologia | Finalidade |
+|-----------|------------|-------------|
+| **Runtime** | Node.js | Ambiente de execução JavaScript/TypeScript no servidor |
+| **Linguagem** | TypeScript | Tipagem estática e padronização do código |
+| **Framework API** | Express | Criação de endpoints REST |
+| **Autenticação** | JWT (JSON Web Token) | Geração e validação de tokens de acesso |
+| **Hash de senha** | bcrypt | Armazenamento seguro de credenciais |
+| **ORM** | Prisma | Mapeamento objeto-relacional, migrations e consultas tipadas |
+
+
+---
+
+## 🗄️ Banco de Dados
+
+| Categoria | Tecnologia | Finalidade |
+|-----------|------------|-------------|
+| **SGBD** | PostgreSQL | Banco de dados relacional principal |
+| **Extensão** | pgcrypto | Criptografia e geração de hashes no banco |
+| **Seed** | Prisma Seed | População inicial de dados (ex: menus, usuários) |
+
+---
+
+## 🎨 Frontend
+
+| Categoria | Tecnologia | Finalidade |
+|-----------|------------|-------------|
+| **Framework** | React  | Construção da interface do usuário |
+| **Linguagem** | TypeScript | Tipagem e manutenibilidade do código |
+| **Estilização** | CSS Modules e Styled Components | Estilo da aplicação |
+| **Requisições HTTP** | fetch / axios | Consumo da API backend |
+
+---
+
+## 🐳 Infraestrutura e Ambiente
+
+| Categoria | Tecnologia | Finalidade |
+|-----------|------------|-------------|
+| **Containerização** | Docker | Padronização do ambiente de desenvolvimento |
+| **Orquestração** | Docker Compose | Subir backend, frontend e banco com um comando |
+| **Deploy** | (A definir) | Serviço de hospedagem |
+
+---
+
+## 📚 Documentação e Testes
+
+| Categoria | Tecnologia | Finalidade |
+|-----------|------------|-------------|
+| **Documentação de API** | Swagger (OpenAPI) | Gerar documentação interativa dos endpoints |
+| **Testes unitários** | Jest | Executar testes automatizados das funcionalidades |
+| **Diagramas UML** | Astah UML | Modelagem de Casos de Uso, Classes e Sequência |
+
+---
+
+## 🛠️ Ferramentas de Apoio
+
+| Categoria | Tecnologia | Finalidade |
+|-----------|------------|-------------|
+| **Versionamento** | Git | Controle de versão |
+| **Repositório** | GitHub  | Armazenamento do código e colaboração |
+| **Gerenciamento do projeto** | Kanban | Scrum board (GitHub Projects) |
