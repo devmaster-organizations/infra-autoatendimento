@@ -13,6 +13,8 @@ services:
       interval: 5s
       timeout: 5s
       retries: 10
+    networks:
+      - infra-net
 
   api:
     build:
@@ -33,6 +35,8 @@ services:
       npx prisma migrate deploy &&
       if [ -f prisma/seed.ts ]; then npx tsx prisma/seed.ts; elif [ -f prisma/seed.js ]; then node prisma/seed.js; else echo 'No seed file found, skipping seed.'; fi &&
       npm run start"
+    networks:
+      - infra-net
 
   frontend:
     build:
@@ -40,11 +44,18 @@ services:
       dockerfile: infra/frontend.Dockerfile
     container_name: infra-frontend
     environment:
+      API_BASE_URL: http://infra-api:3000/api
       NEXT_PUBLIC_API_BASE_URL: http://localhost:3001/api
     depends_on:
       - api
     ports:
       - "3000:3000"
+    networks:
+      - infra-net
 
 volumes:
   pgdata:
+
+networks:
+  infra-net:
+    name: infra-net
