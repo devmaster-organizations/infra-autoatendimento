@@ -53,18 +53,20 @@ infra-autoatendimento/       <- este repositório
 
 ## Como clonar e configurar
 
-### 1. Clone com submodules
+### 1. Clone com submodules (ja trazendo backend e frontend atualizados)
 
 Clone o repositório **com os submodules** para que `backend/` e `frontend/` sejam baixados automaticamente:
 
 ```bash
-git clone --recurse-submodules https://github.com/devmaster-organizations/infra-autoatendimento.git
+git clone --recurse-submodules --remote-submodules https://github.com/devmaster-organizations/infra-autoatendimento.git
 ```
 
-> Se você já clonou sem submodules e as pastas `backend/` e `frontend/` estão vazias, rode:
+Esse comando ja clona o repo principal e atualiza `backend/` e `frontend/` para o branch configurado em `.gitmodules`.
+
+> Se voce ja clonou sem submodules, ou quer forcar tudo de uma vez sem entrar em cada pasta:
 >
 > ```bash
-> git submodule update --init --recursive
+> git submodule sync --recursive && git submodule update --init --recursive --remote
 > ```
 
 ### 2. Como fazer pull e trazer as novidades dos submodules
@@ -77,11 +79,11 @@ Os submodules (`backend/` e `frontend/`) **não atualizam sozinhos** com o pull.
 **Fluxo completo para puxar tudo de uma vez:**
 
 ```bash
-# 1. Atualiza este repositório
+# 1. Atualiza este repositorio
 git pull
 
-# 2. Atualiza os submodules para o commit registrado neste repo
-git submodule update --init --recursive
+# 2. Atualiza backend/frontend sem precisar entrar em cada pasta
+git submodule sync --recursive && git submodule update --init --recursive --remote
 ```
 
 ### 3. Como atualizar um submodule para o commit mais recente da main
