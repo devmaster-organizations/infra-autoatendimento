@@ -16,12 +16,26 @@ services:
     networks:
       - infra-net
 
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "backend@fatec.com" 
+      PGADMIN_DEFAULT_PASSWORD: "password"
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+    networks:
+      - infra-net
+
   api:
     build:
       context: ./backend
       dockerfile: infra/Dockerfile
       target: builder
     container_name: infra-api
+    env_file:
+      - ./backend/.env
     environment:
       PORT: 3000
       DATABASE_URL: postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-password}@postgres:5432/${POSTGRES_DB:-autoatendimento}?schema=public
