@@ -135,6 +135,44 @@ Serviços disponíveis após o up:
 | PgAdmin   | http://localhost:5050  |
 | Postgres  | localhost:5433         |
 
+## Deploy em producao (DigitalOcean)
+
+Para producao, use o arquivo `docker-compose.prod.yml` (sem `pgadmin` e sem Postgres local).
+
+1. Copie o exemplo de variaveis e preencha:
+
+```bash
+cp .env.prod.example .env.prod
+```
+
+2. Ajuste `DATABASE_URL` para o banco gerenciado (Managed PostgreSQL) e `NEXT_PUBLIC_API_BASE_URL` para a URL publica da API.
+
+3. Gere o `backend/.env` a partir do seu arquivo de ambiente de producao (ou mantenha ambos sincronizados):
+
+```bash
+cp .env.prod backend/.env
+```
+
+4. Suba em modo detached:
+
+```bash
+docker compose --env-file .env.prod -f docker-compose.prod.yml up -d --build
+```
+
+5. Verifique logs:
+
+```bash
+docker compose --env-file .env.prod -f docker-compose.prod.yml logs -f
+```
+
+6. Para atualizar versao (pull + rebuild):
+
+```bash
+git pull
+git submodule update --init --recursive --remote
+docker compose --env-file .env.prod -f docker-compose.prod.yml up -d --build
+```
+
 --- 
 ## 🌍 Variáveis de ambiente necessárias
 
